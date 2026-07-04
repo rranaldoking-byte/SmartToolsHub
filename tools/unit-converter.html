@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit Converter | SmartToolsHub</title>
+
+<link rel="stylesheet" href="../style.css">
+
+</head>
+<body>
+
+<nav>
+
+<div class="logo">SmartToolsHub</div>
+
+<ul>
+<li><a href="../index.html">Home</a></li>
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<h1>📏 Unit Converter</h1>
+
+<p>Convert Kilometers and Miles</p>
+
+<input type="number" id="value" placeholder="Enter Value">
+
+<br><br>
+
+<select id="type">
+<option value="km">Kilometers ➜ Miles</option>
+<option value="mile">Miles ➜ Kilometers</option>
+</select>
+
+<br><br>
+
+<button onclick="convertUnit()">Convert</button>
+
+<h2 id="result"></h2>
+
+</section>
+
+<script>
+
+function convertUnit(){
+
+let value=parseFloat(document.getElementById("value").value);
+
+let type=document.getElementById("type").value;
+
+if(isNaN(value)){
+document.getElementById("result").innerHTML="Please enter a number.";
+return;
+}
+
+let answer;
+
+if(type=="km"){
+answer=(value*0.621371).toFixed(2)+" Miles";
+}else{
+answer=(value/0.621371).toFixed(2)+" Kilometers";
+}
+
+document.getElementById("result").innerHTML="✅ "+answer;
+
+}
+
+</script>
+
+</body>
+</html>

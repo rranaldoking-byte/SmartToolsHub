@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard | SmartToolsHub</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.dashboard{
+	text-align:center;
+	padding:80px 20px;
+}
+
+.dashboard h1{
+	margin-bottom:20px;
+}
+
+.dashboard button{
+	margin:10px;
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- Navigation -->
+
+<nav>
+
+<div class="logo">SmartToolsHub</div>
+
+<ul id="navLinks">
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="profile.html">Profile</a></li>
+
+</ul>
+
+<button id="darkBtn">🌙</button>
+
+</nav>
+
+<!-- Dashboard -->
+
+<div class="dashboard">
+
+<h1 id="welcome"></h1>
+
+<p>Welcome to your SmartToolsHub Dashboard.</p>
+
+<br>
+
+<a href="index.html">
+
+<button>🏠 Go To Home</button>
+
+</a>
+
+<br><br>
+
+<a href="profile.html">
+
+<button>👤 My Profile</button>
+
+</a>
+
+<br><br>
+
+<button onclick="logout()">
+
+🚪 Logout
+
+</button>
+
+</div>
+
+<script>
+
+const name = localStorage.getItem("name");
+
+if(name){
+
+document.getElementById("welcome").innerHTML =
+"Welcome, " + name + " 👋";
+
+}else{
+
+document.getElementById("welcome").innerHTML =
+"Welcome Guest 👋";
+
+}
+
+function logout(){
+
+localStorage.removeItem("name");
+localStorage.removeItem("email");
+localStorage.removeItem("password");
+
+alert("Logged Out Successfully");
+
+window.location.href="login.html";
+
+}
+
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>

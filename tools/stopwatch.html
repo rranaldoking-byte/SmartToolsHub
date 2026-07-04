@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stopwatch | SmartToolsHub</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+
+.stopwatch{
+max-width:450px;
+margin:60px auto;
+text-align:center;
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 20px rgba(0,0,0,.1);
+}
+
+#time{
+font-size:50px;
+margin:30px 0;
+font-weight:bold;
+}
+
+.stopwatch button{
+margin:8px;
+}
+
+</style>
+
+</head>
+<body>
+
+<nav>
+
+<div class="logo">SmartToolsHub</div>
+
+<ul>
+<li><a href="../index.html">Home</a></li>
+</ul>
+
+<button id="darkBtn">🌙</button>
+
+</nav>
+
+<div class="stopwatch">
+
+<h1>⏱ Stopwatch</h1>
+
+<div id="time">00:00:00</div>
+
+<button onclick="startWatch()">Start</button>
+
+<button onclick="stopWatch()">Stop</button>
+
+<button onclick="resetWatch()">Reset</button>
+
+</div>
+
+<script>
+
+let seconds=0;
+let minutes=0;
+let hours=0;
+let timer=null;
+
+function updateTime(){
+
+seconds++;
+
+if(seconds==60){
+seconds=0;
+minutes++;
+}
+
+if(minutes==60){
+minutes=0;
+hours++;
+}
+
+document.getElementById("time").innerHTML=
+
+String(hours).padStart(2,"0")+":"+
+
+String(minutes).padStart(2,"0")+":"+
+
+String(seconds).padStart(2,"0");
+
+}
+
+function startWatch(){
+
+if(timer==null){
+
+timer=setInterval(updateTime,1000);
+
+}
+
+}
+
+function stopWatch(){
+
+clearInterval(timer);
+
+timer=null;
+
+}
+
+function resetWatch(){
+
+clearInterval(timer);
+
+timer=null;
+
+seconds=0;
+minutes=0;
+hours=0;
+
+document.getElementById("time").innerHTML="00:00:00";
+
+}
+
+</script>
+
+<script src="../script.js"></script>
+
+</body>
+</html>

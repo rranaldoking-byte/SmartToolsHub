@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Code Generator | SmartToolsHub</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+</head>
+<body>
+
+<nav>
+
+<div class="logo">
+SmartToolsHub
+</div>
+
+<ul>
+
+<li><a href="../index.html">Home</a></li>
+
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<h1>📱 QR Code Generator</h1>
+
+<p>Enter any text or website link.</p>
+
+<input type="text" id="qrText" placeholder="Enter text...">
+
+<br><br>
+
+<button onclick="generateQR()">Generate QR Code</button>
+
+<br><br>
+
+<div id="qrcode"></div>
+
+</section>
+
+<script>
+
+function generateQR(){
+
+document.getElementById("qrcode").innerHTML="";
+
+let text=document.getElementById("qrText").value;
+
+new QRCode(document.getElementById("qrcode"),{
+text:text,
+width:220,
+height:220
+});
+
+}
+
+</script>
+
+</body>
+</html>

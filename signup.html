@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signup - SmartToolsHub</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.signup{
+max-width:400px;
+margin:60px auto;
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 10px 20px rgba(0,0,0,.15);
+text-align:center;
+}
+
+.signup input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:8px;
+}
+
+.signup button{
+width:100%;
+padding:12px;
+margin-top:10px;
+}
+
+</style>
+
+</head>
+<body>
+
+<nav>
+
+<div class="logo">SmartToolsHub</div>
+
+<ul id="navLinks">
+<li><a href="index.html">Home</a></li>
+<li><a href="login.html">Login</a></li>
+</ul>
+
+<button id="darkBtn">🌙</button>
+
+</nav>
+
+<div class="signup">
+
+<h1>Create Account</h1>
+
+<input type="text" id="name" placeholder="Full Name">
+
+<input type="email" id="email" placeholder="Email">
+
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="signup()">Create Account</button>
+
+</div>
+
+<script>
+
+function signup(){
+
+const name=document.getElementById("name").value;
+const email=document.getElementById("email").value;
+const password=document.getElementById("password").value;
+
+if(name==="" || email==="" || password===""){
+alert("Please fill all fields");
+return;
+}
+
+localStorage.setItem("name",name);
+localStorage.setItem("email",email);
+localStorage.setItem("password",password);
+
+alert("Signup Successful!");
+
+window.location.href="login.html";
+
+}
+
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Counter | SmartToolsHub</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<nav>
+<div class="logo">
+SmartToolsHub
+</div>
+<ul>
+<li><a href="../index.html">Home</a></li>
+</ul>
+</nav>
+<section class="hero">
+<h1>📝 Word Counter</h1>
+<p>Type or paste your text below.</p>
+<textarea id="text" rows="10" cols="50" placeholder="Write something..."></textarea>
+<br><br>
+<button onclick="countWords()">Count</button>
+<h2 id="result"></h2>
+</section>
+<script>
+function countWords(){
+let text=document.getElementById("text").value.trim();
+let words=text==""?0:text.split(/\s+/).length;
+let characters=text.length;
+document.getElementById("result").innerHTML=
+"📝 Words: <b>"+words+"</b><br>🔠 Characters: <b>"+characters+"</b>";
+}
+</script>
+</body>
+</html>

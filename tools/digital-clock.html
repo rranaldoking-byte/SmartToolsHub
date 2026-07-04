@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Clock | SmartToolsHub</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+
+.clock{
+max-width:500px;
+margin:60px auto;
+text-align:center;
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 10px 20px rgba(0,0,0,.1);
+}
+
+#clock{
+font-size:55px;
+font-weight:bold;
+color:#2563eb;
+margin-top:20px;
+}
+
+</style>
+
+</head>
+<body>
+
+<nav>
+
+<div class="logo">SmartToolsHub</div>
+
+<ul>
+<li><a href="../index.html">Home</a></li>
+</ul>
+
+<button id="darkBtn">🌙</button>
+
+</nav>
+
+<div class="clock">
+
+<h1>🕒 Digital Clock</h1>
+
+<div id="clock"></div>
+
+</div>
+
+<script>
+
+function updateClock(){
+
+let now=new Date();
+
+let h=String(now.getHours()).padStart(2,"0");
+let m=String(now.getMinutes()).padStart(2,"0");
+let s=String(now.getSeconds()).padStart(2,"0");
+
+document.getElementById("clock").innerHTML=h+":"+m+":"+s;
+
+}
+
+setInterval(updateClock,1000);
+
+updateClock();
+
+</script>
+
+<script src="../script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | SmartToolsHub</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.login{
+
+max-width:420px;
+margin:60px auto;
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 20px rgba(0,0,0,.15);
+text-align:center;
+
+}
+
+.login input{
+
+width:100%;
+padding:14px;
+margin:12px 0;
+border-radius:10px;
+border:1px solid #ccc;
+
+}
+
+</style>
+
+</head>
+<body>
+
+<nav>
+
+<div class="logo">SmartToolsHub</div>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="signup.html">Signup</a></li>
+
+</ul>
+
+<button id="darkBtn">🌙</button>
+
+</nav>
+
+<div class="login">
+
+<h1>Login</h1>
+
+<input type="email" id="email" placeholder="Email">
+
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+</div>
+
+<script>
+
+function login(){
+
+let email=document.getElementById("email").value;
+let password=document.getElementById("password").value;
+
+let savedEmail=localStorage.getItem("email");
+let savedPassword=localStorage.getItem("password");
+
+if(email===savedEmail && password===savedPassword){
+
+alert("Login Successful!");
+
+window.location="dashboard.html";
+
+}else{
+
+alert("Invalid Email or Password");
+
+}
+
+}
+
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>

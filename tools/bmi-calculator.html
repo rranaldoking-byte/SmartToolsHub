@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMI Calculator | SmartToolsHub</title>
+
+<link rel="stylesheet" href="../style.css">
+
+</head>
+<body>
+
+<nav>
+
+<div class="logo">
+SmartToolsHub
+</div>
+
+<ul>
+<li><a href="../index.html">Home</a></li>
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<h1>⚖️ BMI Calculator</h1>
+
+<p>Enter your Weight and Height</p>
+
+<input type="number" id="weight" placeholder="Weight (kg)">
+
+<br><br>
+
+<input type="number" id="height" placeholder="Height (meters)">
+
+<br><br>
+
+<button onclick="calculateBMI()">Calculate BMI</button>
+
+<h2 id="result"></h2>
+
+</section>
+
+<script>
+
+function calculateBMI(){
+
+let weight=document.getElementById("weight").value;
+
+let height=document.getElementById("height").value;
+
+if(weight=="" || height==""){
+
+document.getElementById("result").innerHTML="Please fill all fields.";
+
+return;
+
+}
+
+let bmi=weight/(height*height);
+
+let status="";
+
+if(bmi<18.5){
+
+status="🟡 Underweight";
+
+}
+
+else if(bmi<25){
+
+status="🟢 Normal";
+
+}
+
+else if(bmi<30){
+
+status="🟠 Overweight";
+
+}
+
+else{
+
+status="🔴 Obese";
+
+}
+
+document.getElementById("result").innerHTML=
+
+"Your BMI is <b>"+bmi.toFixed(1)+"</b><br>"+status;
+
+}
+
+</script>
+
+</body>
+</html>

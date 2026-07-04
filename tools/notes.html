@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notes App | SmartToolsHub</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+
+.notes{
+max-width:700px;
+margin:50px auto;
+padding:20px;
+}
+
+textarea{
+width:100%;
+height:250px;
+padding:15px;
+font-size:18px;
+border-radius:10px;
+border:1px solid #ccc;
+resize:none;
+}
+
+</style>
+
+</head>
+<body>
+
+<nav>
+
+<div class="logo">SmartToolsHub</div>
+
+<ul>
+<li><a href="../index.html">Home</a></li>
+</ul>
+
+<button id="darkBtn">🌙</button>
+
+</nav>
+
+<div class="notes">
+
+<h1>📝 Notes App</h1>
+
+<br>
+
+<textarea id="note" placeholder="Write your notes here..."></textarea>
+
+<br><br>
+
+<button onclick="saveNote()">💾 Save Note</button>
+
+<button onclick="clearNote()">🗑 Clear</button>
+
+</div>
+
+<script>
+
+const note=document.getElementById("note");
+
+note.value=localStorage.getItem("note") || "";
+
+function saveNote(){
+
+localStorage.setItem("note",note.value);
+
+alert("Note Saved!");
+
+}
+
+function clearNote(){
+
+note.value="";
+
+localStorage.removeItem("note");
+
+}
+
+</script>
+
+<script src="../script.js"></script>
+
+</body>
+</html>

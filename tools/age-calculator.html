@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator | SmartToolsHub</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav>
+    <div class="logo">SmartToolsHub</div>
+
+    <ul>
+        <li><a href="../index.html">Home</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+
+<h1>🧮 Age Calculator</h1>
+
+<p>Select your date of birth:</p>
+
+<input type="date" id="dob">
+
+<br><br>
+
+<button id="calculate">Calculate Age</button>
+
+<h2 id="output"></h2>
+
+</section>
+
+<script>
+const dobInput = document.getElementById('dob');
+const button = document.getElementById('calculate');
+const output = document.getElementById('output');
+
+button.addEventListener('click', () => {
+
+    const dobValue = dobInput.value;
+
+    if (!dobValue) {
+        output.innerHTML = "Please select your date of birth.";
+        return;
+    }
+
+    const birthDate = new Date(dobValue);
+    const today = new Date();
+
+    let years = today.getFullYear() - birthDate.getFullYear();
+    let months = today.getMonth() - birthDate.getMonth();
+    let days = today.getDate() - birthDate.getDate();
+
+    if (days < 0) {
+        months--;
+        const lastMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+        days += lastMonth.getDate();
+    }
+
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+
+    output.innerHTML =
+    `🎉 You are <b>${years}</b> Years <b>${months}</b> Months <b>${days}</b> Days old.`;
+
+});
+</script>
+
+</body>
+</html>

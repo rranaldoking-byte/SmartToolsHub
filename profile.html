@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Profile | SmartToolsHub</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.profile{
+    max-width:500px;
+    margin:60px auto;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    text-align:center;
+}
+
+.profile img{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    object-fit:cover;
+    margin:20px 0;
+    border:4px solid #2563eb;
+}
+
+.profile input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:10px;
+}
+
+.profile button{
+    margin-top:15px;
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- Navigation -->
+
+<nav>
+
+<div class="logo">SmartToolsHub</div>
+
+<ul id="navLinks">
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="dashboard.html">Dashboard</a></li>
+
+</ul>
+
+<button id="darkBtn">🌙</button>
+
+</nav>
+
+<!-- Profile -->
+
+<div class="profile">
+
+<h1>👤 My Profile</h1>
+
+<img id="preview"
+src="https://via.placeholder.com/150"
+alt="Profile Picture">
+
+<input
+type="file"
+id="image"
+accept="image/*">
+
+<input
+type="text"
+id="name"
+placeholder="Your Name">
+
+<input
+type="email"
+id="email"
+placeholder="Your Email">
+
+<button onclick="saveProfile()">
+
+💾 Save Profile
+
+</button>
+
+</div>
+
+<script>
+
+const nameInput=document.getElementById("name");
+const emailInput=document.getElementById("email");
+const imageInput=document.getElementById("image");
+const preview=document.getElementById("preview");
+
+// Load Saved Data
+
+nameInput.value=localStorage.getItem("name") || "";
+emailInput.value=localStorage.getItem("email") || "";
+
+const savedImage=localStorage.getItem("profileImage");
+
+if(savedImage){
+preview.src=savedImage;
+}
+
+// Upload Image
+
+imageInput.addEventListener("change",function(){
+
+const file=this.files[0];
+
+if(file){
+
+const reader=new FileReader();
+
+reader.onload=function(e){
+
+preview.src=e.target.result;
+
+localStorage.setItem(
+"profileImage",
+e.target.result
+);
+
+}
+
+reader.readAsDataURL(file);
+
+}
+
+});
+
+// Save Profile
+
+function saveProfile(){
+
+localStorage.setItem(
+"name",
+nameInput.value
+);
+
+localStorage.setItem(
+"email",
+emailInput.value
+);
+
+alert("✅ Profile Saved Successfully!");
+
+}
+
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
