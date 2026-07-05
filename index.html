@@ -2,20 +2,31 @@
 <html lang="en">
 <head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-93HZ99X207"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-93HZ99X207');
-</script>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SmartToolsHub</title>
+
+<title>SmartToolsHub - Free Online Tools</title>
+
+<meta name="description" content="SmartToolsHub provides free online tools like Age Calculator, Password Generator, QR Generator, BMI Calculator, Unit Converter and many more.">
+
+<meta name="keywords" content="online tools, calculator, qr generator, password generator, smarttoolshub">
+
+<meta name="author" content="SmartToolsHub">
+
+<meta name="robots" content="index, follow">
+
+<link rel="icon" type="image/png" href="images/logo.png">
+
 <link rel="stylesheet" href="style.css">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-93HZ99X207"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-93HZ99X207');
+</script>
 
 </head>
 
@@ -23,15 +34,19 @@
 
 <!-- ================= NAVBAR ================= -->
 
-<nav>
+<nav class="navbar">
 
 <div class="logo">
-SmartToolsHub
+
+<img src="images/logo.png" alt="SmartToolsHub Logo">
+
+<span>SmartToolsHub</span>
+
 </div>
 
-<ul id="navLinks">
+<ul class="nav-links">
 
-<li><a href="index.html">Home</a></li>
+<li><a href="#">Home</a></li>
 
 <li><a href="#featured">Tools</a></li>
 
@@ -41,15 +56,15 @@ SmartToolsHub
 
 <li><a href="contact.html">Contact</a></li>
 
-<li><a href="login.html">Login</a></li>
-
 </ul>
 
-<div id="menuIcon" class="menu-icon">
-☰
-</div>
+<div class="nav-buttons">
 
 <button id="darkBtn">🌙</button>
+
+<div id="menuIcon">☰</div>
+
+</div>
 
 </nav>
 
@@ -57,146 +72,101 @@ SmartToolsHub
 
 <section class="hero">
 
-<h1 id="heroTitle">
+<h1>100+ Free Online Tools</h1>
 
-100+ Free Online Tools
-
-</h1>
-
-<p id="heroText">
-
-All Your Daily Tools In One Place
-
-</p>
+<p>Fast • Secure • Free • No Signup Required</p>
 
 <input
 type="text"
 id="search"
-placeholder="🔍 Search Tools...">
+placeholder="Search any tool...">
 
 <br><br>
 
 <a href="#featured">
 
-<button>
+<button class="hero-btn">
 
-🚀 Explore Tools
+Explore Tools 🚀
 
 </button>
 
 </a>
 
 </section>
-
 <!-- ================= STATS ================= -->
 
 <section class="stats">
 
 <div class="stat">
-
-<h2>10+</h2>
-
+<h2>20+</h2>
 <p>Free Tools</p>
-
 </div>
 
 <div class="stat">
-
-<h2>1000+</h2>
-
+<h2>10K+</h2>
 <p>Happy Users</p>
-
 </div>
 
 <div class="stat">
-
 <h2>24/7</h2>
-
 <p>Available</p>
-
 </div>
 
 <div class="stat">
-
 <h2>100%</h2>
-
 <p>Free</p>
-
 </div>
 
 </section>
 
-<!-- ================= FEATURED ================= -->
+<!-- ================= FEATURED TOOLS ================= -->
 
 <section class="featured" id="featured">
 
-<h1>
-
-🔥 Featured Tools
-
-</h1>
+<h1>🔥 Featured Tools</h1>
 
 <div class="featured-box">
 
 <div class="feature-card">
-
 <h2>🧮 Age Calculator</h2>
-
-<p>Calculate your age instantly.</p>
-
+<p>Calculate your exact age instantly.</p>
 <a href="tools/age-calculator.html">
-
 <button>Use Now</button>
-
 </a>
-
 </div>
 
 <div class="feature-card">
-
 <h2>🔐 Password Generator</h2>
-
-<p>Create strong passwords.</p>
-
+<p>Create strong and secure passwords.</p>
 <a href="tools/password-generator.html">
-
 <button>Use Now</button>
-
 </a>
-
 </div>
 
 <div class="feature-card">
-
-<h2>📱 QR Generator</h2>
-
-<p>Create QR Codes instantly.</p>
-
+<h2>📱 QR Code Generator</h2>
+<p>Create QR codes in one click.</p>
 <a href="tools/qr-generator.html">
-
 <button>Use Now</button>
-
 </a>
-
 </div>
 
 </div>
 
 </section>
 
-</body>
-</html>
 <!-- ================= CATEGORIES ================= -->
 
 <section class="categories" id="categories">
 
-<h1>📂 Browse By Category</h1>
+<h1>📂 Browse Categories</h1>
 
 <div class="category-box">
 
 <div class="category">
 <h2>🧮 Calculators</h2>
-<p>Age, BMI, Calculator, Unit Converter</p>
+<p>Age, BMI, EMI, GST</p>
 </div>
 
 <div class="category">
@@ -206,22 +176,22 @@ placeholder="🔍 Search Tools...">
 
 <div class="category">
 <h2>📱 QR & Utilities</h2>
-<p>QR Generator, Word Counter</p>
+<p>QR Generator, Notes</p>
 </div>
 
 <div class="category">
-<h2>⏱ Time Tools</h2>
-<p>Stopwatch, Digital Clock</p>
+<h2>📏 Converter</h2>
+<p>Unit Converter</p>
 </div>
 
 <div class="category">
 <h2>📝 Productivity</h2>
-<p>Notes App</p>
+<p>Word Counter</p>
 </div>
 
 <div class="category">
-<h2>🚀 More Coming Soon</h2>
-<p>100+ Tools</p>
+<h2>🚀 More Tools</h2>
+<p>Coming Soon</p>
 </div>
 
 </div>
@@ -235,42 +205,30 @@ placeholder="🔍 Search Tools...">
 <h1>Why Choose SmartToolsHub?</h1>
 
 <p>
-
 SmartToolsHub provides fast, secure and completely free online tools.
-No registration required. Use all tools directly in your browser.
-
+No registration required. Everything works directly in your browser.
 </p>
 
 <div class="about-box">
 
 <div class="about-card">
-
 <h2>⚡ Fast</h2>
-
 <p>Instant Results</p>
-
 </div>
 
 <div class="about-card">
-
 <h2>🔒 Secure</h2>
-
-<p>Your data stays in your browser.</p>
-
+<p>Your data never leaves your browser.</p>
 </div>
 
 <div class="about-card">
-
 <h2>💯 Free</h2>
-
-<p>All tools are completely free.</p>
-
+<p>No hidden charges.</p>
 </div>
 
 </div>
 
 </section>
-
 <!-- ================= ALL TOOLS ================= -->
 
 <section class="cards">
@@ -282,27 +240,21 @@ No registration required. Use all tools directly in your browser.
 </div>
 
 <div class="card">
-<h2>🔐 Password Generator</h2>
-<p>Create secure passwords.</p>
-<a href="tools/password-generator.html"><button>Open Tool</button></a>
-</div>
-
-<div class="card">
-<h2>📱 QR Generator</h2>
-<p>Create QR Codes.</p>
-<a href="tools/qr-generator.html"><button>Open Tool</button></a>
-</div>
-
-<div class="card">
 <h2>⚖️ BMI Calculator</h2>
 <p>Check your BMI.</p>
 <a href="tools/bmi-calculator.html"><button>Open Tool</button></a>
 </div>
 
 <div class="card">
-<h2>📝 Word Counter</h2>
-<p>Count words instantly.</p>
-<a href="tools/word-counter.html"><button>Open Tool</button></a>
+<h2>🔐 Password Generator</h2>
+<p>Create secure passwords.</p>
+<a href="tools/password-generator.html"><button>Open Tool</button></a>
+</div>
+
+<div class="card">
+<h2>📱 QR Code Generator</h2>
+<p>Create QR Codes.</p>
+<a href="tools/qr-generator.html"><button>Open Tool</button></a>
 </div>
 
 <div class="card">
@@ -315,6 +267,12 @@ No registration required. Use all tools directly in your browser.
 <h2>➕ Calculator</h2>
 <p>Simple online calculator.</p>
 <a href="tools/calculator.html"><button>Open Tool</button></a>
+</div>
+
+<div class="card">
+<h2>📝 Word Counter</h2>
+<p>Count words instantly.</p>
+<a href="tools/word-counter.html"><button>Open Tool</button></a>
 </div>
 
 <div class="card">
@@ -335,6 +293,18 @@ No registration required. Use all tools directly in your browser.
 <a href="tools/digital-clock.html"><button>Open Tool</button></a>
 </div>
 
+<div class="card">
+<h2>📅 Age Difference</h2>
+<p>Calculate age difference.</p>
+<a href="#"><button>Coming Soon</button></a>
+</div>
+
+<div class="card">
+<h2>💰 EMI Calculator</h2>
+<p>Loan EMI calculator.</p>
+<a href="#"><button>Coming Soon</button></a>
+</div>
+
 </section>
 
 <!-- ================= FOOTER ================= -->
@@ -351,13 +321,11 @@ No registration required. Use all tools directly in your browser.
 
 <a href="privacy-policy.html">Privacy Policy</a> |
 
-<a href="terms.html">Terms</a> |
+<a href="terms.html">Terms & Conditions</a> |
 
 <a href="disclaimer.html">Disclaimer</a> |
 
-<a href="contact.html">Contact</a> |
-
-<a href="login.html">Login</a>
+<a href="contact.html">Contact</a>
 
 </p>
 

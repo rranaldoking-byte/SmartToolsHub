@@ -1,161 +1,213 @@
-// ================= DARK MODE =================
+// ===========================
+// LOADER
+// ===========================
+
+window.addEventListener("load", () => {
+
+const loader = document.getElementById("loader");
+
+setTimeout(() => {
+
+loader.style.opacity = "0";
+
+loader.style.visibility = "hidden";
+
+}, 800);
+
+});
+
+// ===========================
+// DARK MODE
+// ===========================
 
 const darkBtn = document.getElementById("darkBtn");
 
-if (darkBtn) {
-	darkBtn.addEventListener("click", function () {
-		document.body.classList.toggle("dark");
-	});
-}
+darkBtn.addEventListener("click", () => {
 
+document.body.classList.toggle("dark-mode");
 
-// ================= LIVE SEARCH =================
+if(document.body.classList.contains("dark-mode")){
 
-const search = document.getElementById("search");
+darkBtn.innerHTML="☀️";
 
-if (search) {
+}else{
 
-	search.addEventListener("keyup", function () {
-
-		let value = search.value.toLowerCase();
-
-		let cards = document.querySelectorAll(".card");
-
-		cards.forEach(function (card) {
-
-			let text = card.innerText.toLowerCase();
-
-			if (text.includes(value)) {
-				card.style.display = "block";
-			} else {
-				card.style.display = "none";
-			}
-
-		});
-
-	});
+darkBtn.innerHTML="🌙";
 
 }
 
+});
 
-// ================= BACK TO TOP =================
+// ===========================
+// MOBILE MENU
+// ===========================
 
-const topBtn = document.getElementById("topBtn");
+const menuIcon=document.getElementById("menuIcon");
 
-if (topBtn) {
+const navLinks=document.querySelector(".nav-links");
 
-	window.addEventListener("scroll", function () {
+menuIcon.addEventListener("click",()=>{
 
-		if (window.scrollY > 200) {
-			topBtn.style.display = "block";
-		} else {
-			topBtn.style.display = "none";
-		}
+if(navLinks.style.display==="flex"){
 
-	});
+navLinks.style.display="none";
 
-	topBtn.addEventListener("click", function () {
+}else{
 
-		window.scrollTo({
-			top: 0,
-			behavior: "smooth"
-		});
+navLinks.style.display="flex";
 
-	});
+navLinks.style.flexDirection="column";
 
 }
 
+});
 
-// ================= MOBILE MENU =================
+// ===========================
+// BACK TO TOP
+// ===========================
 
-const menuIcon = document.getElementById("menuIcon");
-const navLinks = document.getElementById("navLinks");
+const topBtn=document.getElementById("topBtn");
 
-if (menuIcon && navLinks) {
+window.onscroll=function(){
 
-	menuIcon.addEventListener("click", function () {
+if(document.documentElement.scrollTop>300){
 
-		navLinks.classList.toggle("active");
+topBtn.style.display="block";
 
-	});
+}else{
 
-}
-
-
-// ================= TYPING ANIMATION =================
-
-const typing = document.getElementById("typing");
-
-if (typing) {
-
-	const text = "100+ Free Online Tools";
-
-	let i = 0;
-
-	function typeWriter() {
-
-		if (i < text.length) {
-
-			typing.innerHTML += text.charAt(i);
-
-			i++;
-
-			setTimeout(typeWriter, 80);
-
-		}
-
-	}
-
-	typeWriter();
-
-}
-// ================= HERO SLIDER =================
-
-const titles = [
-
-"100+ Free Online Tools",
-
-"Fast & Secure Online Tools",
-
-"100% Free For Everyone",
-
-"SmartToolsHub"
-
-];
-
-const texts = [
-
-"All Your Daily Tools In One Place",
-
-"No Signup Required",
-
-"Simple • Fast • Secure",
-
-"Made For Students & Professionals"
-
-];
-
-let current = 0;
-
-const heroTitle = document.getElementById("heroTitle");
-const heroText = document.getElementById("heroText");
-
-if(heroTitle && heroText){
-
-setInterval(function(){
-
-current++;
-
-if(current >= titles.length){
-
-current = 0;
+topBtn.style.display="none";
 
 }
 
-heroTitle.innerHTML = titles[current];
+};
 
-heroText.innerHTML = texts[current];
+topBtn.onclick=function(){
 
-},3000);
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+};
+
+// ===========================
+// SEARCH
+// ===========================
+
+const search=document.getElementById("search");
+
+const cards=document.querySelectorAll(".card");
+
+if(search){
+
+search.addEventListener("keyup",()=>{
+
+const value=search.value.toLowerCase();
+
+cards.forEach(card=>{
+
+const text=card.innerText.toLowerCase();
+
+card.style.display=text.includes(value)?"block":"none";
+
+});
+
+});
+
+}
+
+// ===========================
+// SCROLL ANIMATION
+// ===========================
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity="1";
+
+entry.target.style.transform="translateY(0)";
+
+}
+
+});
+
+});
+
+document.querySelectorAll(".card,.feature-card,.about-card,.category,.testimonial,.stat").forEach(el=>{
+
+el.style.opacity="0";
+
+el.style.transform="translateY(40px)";
+
+el.style.transition="0.7s";
+
+observer.observe(el);
+
+});
+
+// ===========================
+// STATS COUNTER
+// ===========================
+
+const counters=document.querySelectorAll(".stat h2");
+
+const speed=80;
+
+counters.forEach(counter=>{
+
+const update=()=>{
+
+const target=parseInt(counter.innerText);
+
+let count=parseInt(counter.getAttribute("data-count"))||0;
+
+const inc=Math.ceil(target/speed);
+
+if(count<target){
+
+count+=inc;
+
+counter.setAttribute("data-count",count);
+
+counter.innerText=count+"+";
+
+setTimeout(update,25);
+
+}else{
+
+counter.innerText=target+"+";
+
+}
+
+};
+
+update();
+
+});
+
+// ===========================
+// NEWSLETTER
+// ===========================
+
+const form=document.querySelector(".newsletter form");
+
+if(form){
+
+form.addEventListener("submit",(e)=>{
+
+e.preventDefault();
+
+alert("🎉 Thank you for subscribing!");
+
+form.reset();
+
+});
 
 }
